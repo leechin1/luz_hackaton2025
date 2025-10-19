@@ -163,7 +163,7 @@ MINIMA & LENGTH
   - quando_por_que (2–4 frases; elegibilidade e racional)
   - objetivos (≥ 3)
   - consideracoes_chave (≥ 3)
-  - modalidades_tipicas (≥ 2, genéricas)
+  - modalidades_tipicas (≥ 2, genéricas) -> isto devem ser as terapêuticas hospitalares, tratamentos, mais frequentemente usados. Ex.: Cancro: Cirugia, Quimioterapia e Radioterapia.
 
 STRICT JSON SCHEMA:
 {{
@@ -298,7 +298,7 @@ class ChatSession:
                 while len(obj.recomendadas) < 3:
                     obj.recomendadas.append(
                         RecommendedTreatment(
-                            nome="Intervenção multimodal de suporte",
+                            nome="Intervenção terapêutica recomendada",
                             quando_por_que="Indicada para melhorar controlo sintomático e adesão terapêutica.",
                             objetivos=["Reduzir sintomas", "Melhorar qualidade de vida", "Prevenir agudizações"],
                             consideracoes_chave=["Adequar à função orgânica", "Educação do doente", "Seguimento regular"],
@@ -340,7 +340,7 @@ try:
 except:
     st.markdown("🩺")
 st.markdown('<div class="brand-title">Healthflow Médica AI</div>', unsafe_allow_html=True)
-st.markdown('<div class="brand-sub">Insights detalhados sobre doenças (Português - pt-PT)</div>', unsafe_allow_html=True)
+st.markdown('<div class="brand-sub">Dashboard acessivel a utentes da myLuz. Informado e credenciado.', unsafe_allow_html=True)
 st.markdown('</div>', unsafe_allow_html=True)
 
 # Show API warning if no key
@@ -457,3 +457,26 @@ if payload:
     """, unsafe_allow_html=True)
 else:
     st.info("👆 Introduza uma condição médica e clique em 'Analisar' para começar.")
+
+# Footer with disclaimer
+footer_html = """
+<style>
+.footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: #f1f1f1;
+    color: #666;
+    text-align: center;
+    padding: 10px;
+    font-size: 12px;
+    border-top: 1px solid #ddd;
+}
+</style>
+<div class="footer">
+    <p><strong>Alerta:</strong> Esta aplicação serve de demo ao nosso produto para explicar como pretendemos usar a tecnologia LLM para apoio à informação do utente.</p>
+</div>
+"""
+
+st.markdown(footer_html, unsafe_allow_html=True)
